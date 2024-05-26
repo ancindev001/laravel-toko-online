@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('barangs', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_barang');
-            $table->smallInteger('stok_barang');
-            $table->string('keterangan');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('staff_id')->constrained('users');
+            $table->integer('total');
+            $table->enum('status', ['waiting', 'onprocess', 'ondelivery', 'delivered', 'reject', 'cancel'])->default('waiting');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('barangs');
+        Schema::dropIfExists('orders');
     }
 };
