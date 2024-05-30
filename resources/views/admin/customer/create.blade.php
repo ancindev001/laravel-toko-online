@@ -5,35 +5,33 @@
         <div class="card">
             <div class="card-header">Edit pelanggan</div>
             <div class="card-body">
-                <form action="{{ route('pelanggan.store') }}" method="post">
+                <form action="{{ route('customer.store') }}" method="post">
                     @csrf
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="">Name</label>
                         <input type="text" class="form-control" name="name">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="">Email</label>
                         <input type="email" class="form-control" name="email">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="">Password</label>
                         <input type="text" class="form-control" name="password">
                     </div>
-                    <div class="form-group">
-                        <label for="">Alamat</label>
+                    <div class="form-group mb-2">
+                        <label for="">Address</label>
                         <input type="text" class="form-control" name="address">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="">Phone</label>
                         <input type="text" class="form-control" name="phone">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group mb-2">
                         <label for="">Level</label>
                         <select name="level" id="" class="form-control">
                             <option value="Admin">Admin</option>
-                            <option value="Staff">Staff</option>
-                            <option value="Manager">Manager</option>
-                            <option value="Pelanggan">Pelanggan</option>
+                            <option value="Customer">Customer</option>
                         </select>
                     </div>
 

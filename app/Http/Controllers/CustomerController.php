@@ -64,8 +64,13 @@ class CustomerController extends Controller
         $customer->name = $request->name;
         $customer->address = $request->address;
         $customer->phone = $request->phone;
+        $customer->level = $request->level;
+        $customer->email = $request->email;
+        if ($request->password) {
+            $customer->password = bcrypt($request->password);
+        }
         $customer->save();
-        return redirect()->route('customer.index')->with('message', 'Success update');
+        return redirect()->route('customer.index')->with('message', 'Success update cutomer ' . $customer->name);
     }
 
     /**
@@ -74,6 +79,6 @@ class CustomerController extends Controller
     public function destroy(User $customer)
     {
         $customer->delete();
-        return redirect()->route('customer.index')->with('message', 'Success delete');
+        return redirect()->route('customer.index')->with('message', 'Success delete customer');
     }
 }
