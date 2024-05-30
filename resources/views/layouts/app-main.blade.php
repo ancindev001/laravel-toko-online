@@ -31,9 +31,10 @@
             <div class="d-flex align-items-center">
                 <div class="fw-bold fs-1 me-5">{{ config('app.name', 'Laravel') }}</div>
                 <div style="width: 500px">
-                    <form action="" class="d-flex">
-                        <input placeholder="search product here" type="text" class="form-control me-2 w-100">
-                        <button class="btn btn-primary d-flex align-items-center gap-2"><svg
+                    <form class="d-flex">
+                        <input name="q" value="{{ request()->q ?? request()->q }}"
+                            placeholder="search product here" type="text" class="form-control me-2 w-100">
+                        <button type="submit" class="btn btn-primary d-flex align-items-center gap-2"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
                                 <path

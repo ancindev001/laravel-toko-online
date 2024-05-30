@@ -7,10 +7,14 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
         // list product frontend
-        $products = Product::paginate(12);
-        return view('welcome', compact('products'));
+        if ($request->q) {
+            $products = Product::where('name', 'LIKE', "%{$request->q}%")->paginate(12);
+        } else {
+            $products = Product::paginate(12);
+        }
+        return view('home', compact('products'));
     }
 }
