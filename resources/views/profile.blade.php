@@ -8,15 +8,15 @@
                     <div class="card-body">
                         <form action="{{ route('profile.update', ['user' => $user->id]) }}" method="POST">
                             @csrf
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="">Name</label>
                                 <input type="text" name="name" value="{{ $user->name }}" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="">Email</label>
                                 <input type="text" name="email" value="{{ $user->email }}" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="">New Password</label>
                                 <input type="text" name="password" value="" class="form-control">
                             </div>
